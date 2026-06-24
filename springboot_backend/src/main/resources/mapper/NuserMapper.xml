@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.mapper.NuserMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="NuserResultMap" type="com.lab.entity.Nuser">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="birthday" column="birthday"/>
+        <result property="passwordHash" column="password_hash"/>
+    </resultMap>
+
+    <!-- 查询所有普通用户 -->
+    <select id="findAll" resultMap="NuserResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Nuser
+        ORDER BY id
+    </select>
+
+    <!-- 根据ID查询用户 -->
+    <select id="findById" resultMap="NuserResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Nuser
+        WHERE id = #{id}
+    </select>
+
+    <!-- 根据用户名、邮箱或生日查询用户（用于登录） -->
+    <select id="findByLoginInfo" resultMap="NuserResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Nuser
+        WHERE 1=1
+        <if test="username != null and username != ''">
+            AND username = #{username}
+        </if>
+        <if test="email != null and email != ''">
+            AND email = #{email}
+        </if>
+        <if test="birthday != null">
+            AND birthday = #{birthday}
+        </if>
+        LIMIT 1
+    </select>
+
+    <!-- 添加普通用户 -->
+    <insert id="insert" parameterType="com.lab.entity.Nuser">
+        INSERT INTO Nuser(id, username, email, birthday, password_hash)
+        VALUES(#{id}, #{username}, #{email}, #{birthday}, #{passwordHash})
+    </insert>
+
+    <!-- 删除普通用户 -->
+    <delete id="deleteById">
+        DELETE FROM Nuser
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 更新用户信息 -->
+    <update id="update" parameterType="com.lab.entity.Nuser">
+        UPDATE Nuser
+        SET username = #{username},
+            email = #{email},
+            birthday = #{birthday}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 修改密码 -->
+    <update id="updatePassword">
+        UPDATE Nuser
+        SET password_hash = #{passwordHash}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

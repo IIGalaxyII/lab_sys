@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.mapper.AdmMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="AdmResultMap" type="com.lab.entity.Adm">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="birthday" column="birthday"/>
+        <result property="passwordHash" column="password_hash"/>
+    </resultMap>
+
+    <!-- 根据ID查询管理员 -->
+    <select id="findById" resultMap="AdmResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Adm
+        WHERE id = #{id}
+    </select>
+
+    <!-- 根据用户名、邮箱或生日查询管理员（用于登录） -->
+    <select id="findByLoginInfo" resultMap="AdmResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Adm
+        WHERE 1=1
+        <if test="username != null and username != ''">
+            AND username = #{username}
+        </if>
+        <if test="email != null and email != ''">
+            AND email = #{email}
+        </if>
+        <if test="birthday != null">
+            AND birthday = #{birthday}
+        </if>
+        LIMIT 1
+    </select>
+
+    <!-- 添加管理员 -->
+    <insert id="insert" parameterType="com.lab.entity.Adm">
+        INSERT INTO Adm(id, username, email, birthday, password_hash)
+        VALUES(#{id}, #{username}, #{email}, #{birthday}, #{passwordHash})
+    </insert>
+
+    <!-- 更新管理员信息 -->
+    <update id="update" parameterType="com.lab.entity.Adm">
+        UPDATE Adm
+        SET username = #{username},
+            email = #{email},
+            birthday = #{birthday}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 修改密码 -->
+    <update id="updatePassword">
+        UPDATE Adm
+        SET password_hash = #{passwordHash}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

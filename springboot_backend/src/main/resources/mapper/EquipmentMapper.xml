@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.mapper.EquipmentMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="EquipmentResultMap" type="com.lab.entity.Equipment">
+        <id property="id" column="id"/>
+        <result property="ename" column="ename"/>
+        <result property="state" column="state"/>
+        <result property="useFrequency" column="use_frequency"/>
+    </resultMap>
+
+    <!-- 查询所有设备 -->
+    <select id="findAll" resultMap="EquipmentResultMap">
+        SELECT id, ename, state, use_frequency
+        FROM equipment
+        ORDER BY id
+    </select>
+
+    <!-- 根据ID查询设备 -->
+    <select id="findById" resultMap="EquipmentResultMap">
+        SELECT id, ename, state, use_frequency
+        FROM equipment
+        WHERE id = #{id}
+    </select>
+
+    <!-- 更新设备状态 -->
+    <update id="updateState">
+        UPDATE equipment
+        SET state = #{state}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 更新设备使用频率 -->
+    <update id="updateUseFrequency">
+        UPDATE equipment
+        SET use_frequency = #{useFrequency}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 统计某设备的批准预约数 -->
+    <select id="countApprovedReservations" resultType="int">
+        SELECT COUNT(*)
+        FROM Restore_table
+        WHERE equipment_id = #{equipmentId}
+          AND permit = '2'
+    </select>
+
+    <!-- 统计所有设备的总批准预约数 -->
+    <select id="countTotalApprovedReservations" resultType="int">
+        SELECT COUNT(*)
+        FROM Restore_table
+        WHERE permit = '2'
+    </select>
+
+</mapper>

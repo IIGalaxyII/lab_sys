@@ -1,0 +1,22 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: springboot-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/labsys?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: root
+    password: Ykt@17720516407
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: Asia/Shanghai
+
+mybatis:
+  # Mapper XML 文件位置
+  mapper-locations: classpath:mapper/*.xml
+  # MyBatis 配置文件位置
+  config-location: classpath:mybatis-config.xml
+  # 实体类别名包路径
+  type-aliases-package: com.lab.entity
