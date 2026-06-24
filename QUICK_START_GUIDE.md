@@ -31,7 +31,7 @@ mysql -u root -p < springboot_backend/test_data.sql
 
 ```bash
 cd springboot_backend
-mvn spring-boot:run
+.\mvnw.cmd spring-boot:run
 ```
 
 或直接在 IDE 中运行 `com.lab.App` 主类。

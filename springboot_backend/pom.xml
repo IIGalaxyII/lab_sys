@@ -12,7 +12,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.18</version>
+    <version>3.2.5</version>
     <relativePath/>
   </parent>
 
@@ -38,22 +38,22 @@
 
     <!-- JSTL 标签库 -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
     </dependency>
 
     <!-- Servlet API -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
-    <!-- MyBatis Starter -->
+    <!-- MyBatis Starter (支持 Spring Boot 3.x) -->
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
-      <version>2.3.1</version>
+      <version>3.0.3</version>
     </dependency>
 
     <!-- MySQL 驱动 -->
@@ -64,11 +64,23 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- JWT -->
+    <!-- JWT (支持 Java 17+) -->
     <dependency>
       <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt</artifactId>
-      <version>0.9.1</version>
+      <artifactId>jjwt-api</artifactId>
+      <version>0.12.5</version>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>0.12.5</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <version>0.12.5</version>
+      <scope>runtime</scope>
     </dependency>
 
     <!-- JAXB API (Java 11+ removed javax.xml.bind) -->
@@ -83,10 +95,11 @@
       <version>2.3.1</version>
     </dependency>
 
-    <!-- Lombok -->
+    <!-- Lombok (支持 JDK 24+) -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <version>1.18.32</version>
       <optional>true</optional>
     </dependency>
   </dependencies>

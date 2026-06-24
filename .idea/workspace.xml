@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93fc6c20-903e-41d7-b1a3-a4792171c58d" name="更改" comment="v1.0">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QUICK_START_GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/QUICK_START_GUIDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/QUICK_START.md" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/QUICK_START.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminEquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminEquipmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/EquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/EquipmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/UserReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/controller/UserReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/interceptor/JwtInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/service/RestoreTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/service/RestoreTableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/java/com/lab/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot_backend/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +29,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="190" />
+    <option name="cachedIndexableFilesCount" value="78" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,29 +50,36 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="xG8CeXS4" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000000002" />
-      <entry key="S60" value="1.0000000333638284" />
-      <entry key="M2" value="1.0004819161528675" />
-      <entry key="M5" value="1.1854856947928805" />
-      <entry key="M10" value="3.179597010809617" />
-      <entry key="M15" value="6.669332307880069" />
-      <entry key="M30" value="16.7322712482473" />
-      <entry key="H1" value="27.99057537762075" />
-      <entry key="H2" value="41.564609336795925" />
-      <entry key="H4" value="70.34142029511328" />
-      <entry key="D1" value="194.2972641482468" />
-      <entry key="W1" value="252.84105736834198" />
+      <entry key="MS100" value="1.000000010862137" />
+      <entry key="MS500" value="1.0441753761519839" />
+      <entry key="S2" value="1.7708125164013122" />
+      <entry key="S5" value="2.3887080942670105" />
+      <entry key="S10" value="2.866908340357075" />
+      <entry key="S30" value="3.990075679545832" />
+      <entry key="S60" value="5.7692207454530475" />
+      <entry key="M2" value="8.972364915325468" />
+      <entry key="M5" value="13.227335089287529" />
+      <entry key="M10" value="15.364411043303777" />
+      <entry key="M15" value="16.26257091945942" />
+      <entry key="M30" value="18.94142808389551" />
+      <entry key="H1" value="26.91460117879377" />
+      <entry key="H2" value="41.838041111172274" />
+      <entry key="H4" value="71.41855221914163" />
+      <entry key="D1" value="203.63672816372656" />
+      <entry key="W1" value="269.2004431006799" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -78,23 +101,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.7631296044802796" />
-      <entry key="MS500" value="0.9473700705992677" />
-      <entry key="S2" value="0.9865745659392595" />
-      <entry key="S5" value="0.9946080410682931" />
-      <entry key="S10" value="0.9973003765507628" />
-      <entry key="S30" value="0.999099314526154" />
-      <entry key="S60" value="0.9995495891708989" />
-      <entry key="M2" value="1.0002566227128344" />
-      <entry key="M5" value="1.1853850998316742" />
-      <entry key="M10" value="3.1794575868418655" />
-      <entry key="M15" value="6.669119055411675" />
-      <entry key="M30" value="16.73198045766933" />
-      <entry key="H1" value="27.99032427772638" />
-      <entry key="H2" value="41.564422339595694" />
-      <entry key="H4" value="70.34127116941289" />
-      <entry key="D1" value="194.29720911103863" />
-      <entry key="W1" value="252.84104779616618" />
+      <entry key="MS100" value="2.1267759450672493E-6" />
+      <entry key="MS500" value="0.1171151762238978" />
+      <entry key="S2" value="1.2895456275206176" />
+      <entry key="S5" value="2.157588601516912" />
+      <entry key="S10" value="2.7436349906166715" />
+      <entry key="S30" value="3.946527585850065" />
+      <entry key="S60" value="5.745174318244512" />
+      <entry key="M2" value="8.958057171177023" />
+      <entry key="M5" value="13.220367465524722" />
+      <entry key="M10" value="15.360613310599922" />
+      <entry key="M15" value="16.259956192078114" />
+      <entry key="M30" value="18.940046158447768" />
+      <entry key="H1" value="26.91383093173685" />
+      <entry key="H2" value="41.83758686769385" />
+      <entry key="H4" value="71.4182650179138" />
+      <entry key="D1" value="203.63664652113033" />
+      <entry key="W1" value="269.2004294375488" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -109,6 +132,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Maven.maven.executor&quot;: &quot;Run&quot;,
     &quot;Maven.未命名.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
@@ -117,6 +141,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.App.executor&quot;: &quot;Run&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -130,9 +155,9 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\WorkApps\\IntelliJ IDEA 2026.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
@@ -149,7 +174,7 @@
       <recent name="C:\Users\60325\mywork\Java\lab_admin_sys" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.App">
     <configuration name="maven" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -180,6 +205,17 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="springboot_backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lab.App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Maven.maven" />
+      <item itemvalue="Spring Boot.App" />
+    </list>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -207,7 +243,8 @@
       <workItem from="1781442465934" duration="6874000" />
       <workItem from="1781783525802" duration="623000" />
       <workItem from="1782286892221" duration="1639000" />
-      <workItem from="1782289217060" duration="2651000" />
+      <workItem from="1782289217060" duration="6788000" />
+      <workItem from="1782298823584" duration="1339000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />

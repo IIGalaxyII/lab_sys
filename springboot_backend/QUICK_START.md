@@ -36,11 +36,11 @@ spring:
 # 进入项目目录
 cd C:\Users\60325\mywork\Java\lab_admin_sys\springboot_backend
 
-# 编译项目
-mvn clean package
+# 编译项目（PowerShell）
+.\mvnw.cmd clean package
 
-# 运行项目
-mvn spring-boot:run
+# 运行项目（PowerShell）
+.\mvnw.cmd spring-boot:run
 ```
 
 或者在IDE中直接运行 `com.lab.App` 类
