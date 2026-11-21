@@ -25,6 +25,13 @@
         WHERE id = #{id}
     </select>
 
+    <!-- 根据邮箱查询用户 -->
+    <select id="findByEmail" resultMap="NuserResultMap">
+        SELECT id, username, email, birthday, password_hash
+        FROM Nuser
+        WHERE email = #{email}
+    </select>
+
     <!-- 根据用户名、邮箱或生日查询用户（用于登录） -->
     <select id="findByLoginInfo" resultMap="NuserResultMap">
         SELECT id, username, email, birthday, password_hash

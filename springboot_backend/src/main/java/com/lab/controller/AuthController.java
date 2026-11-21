@@ -134,13 +134,15 @@ public class AuthController {
     }
 
     /**
-     * 修改密码（通用）
+     * 修改密码（登录页使用：通过用户名/邮箱/生日 + 旧密码校验身份）
      */
     @PostMapping("/change-password")
-    public Result<Void> changePassword(HttpServletRequest request, @RequestBody Map<String, String> data) {
+    public Result<Void> changePassword(@RequestBody Map<String, String> data) {
         try {
-            String userId = (String) request.getAttribute("userId");
-            String role = (String) request.getAttribute("role");
+            String role = data.get("role");
+            String username = data.get("username");
+            String email = data.get("email");
+            String birthday = data.get("birthday");
             String oldPassword = data.get("oldPassword");
             String newPassword = data.get("newPassword");
 
@@ -148,12 +150,17 @@ public class AuthController {
             if (oldPassword == null || oldPassword.isEmpty() || newPassword == null || newPassword.isEmpty()) {
                 return Result.error("密码不能为空");
             }
+            if ((username == null || username.isEmpty()) &&
+                (email == null || email.isEmpty()) &&
+                (birthday == null || birthday.isEmpty())) {
+                return Result.error("请至少提供用户名、邮箱或生日中的一项");
+            }
 
             // 根据角色调用不同的服务
             if ("admin".equals(role)) {
-                admService.changePassword(userId, oldPassword, newPassword);
+                admService.resetPasswordByIdentity(username, email, birthday, oldPassword, newPassword);
             } else {
-                nuserService.changePassword(userId, oldPassword, newPassword);
+                nuserService.resetPasswordByIdentity(username, email, birthday, oldPassword, newPassword);
             }
 
             return Result.success("密码修改成功", null);

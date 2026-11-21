@@ -1,12 +1,12 @@
 # 高校实验室设备预约管理系统 - 后端
 
 ## 项目简介
-基于 Spring Boot + MyBatis + MySQL 8.0 的高校实验室设备预约管理系统后端部分，实现了管理员和普通用户的双角色权限体系。
+基于 Spring Boot + MyBatis + PostgreSQL 的高校实验室设备预约管理系统后端部分，实现了管理员和普通用户的双角色权限体系。
 
 ## 技术栈
-- **Spring Boot**: 2.7.18
-- **MyBatis**: 2.3.1
-- **MySQL**: 8.0.46
+- **Spring Boot**: 3.2.5
+- **MyBatis**: 3.0.3
+- **PostgreSQL**: 12+（原 MySQL 版本已迁移）
 - **JWT**: jjwt 0.9.1
 - **Lombok**: 最新版本
 
@@ -72,7 +72,7 @@
 ### 1. 环境要求
 - JDK 8 或以上
 - Maven 3.6+
-- MySQL 8.0.46
+- PostgreSQL 12+
 
 ### 2. 数据库配置
 
@@ -89,8 +89,8 @@ mysql -u root -p < querytable.sql
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/labsys?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
-    username: root
+    url: jdbc:postgresql://localhost:5432/labsys?currentSchema=public&characterEncoding=UTF-8
+    username: postgres
     password: 你的密码
 ```
 

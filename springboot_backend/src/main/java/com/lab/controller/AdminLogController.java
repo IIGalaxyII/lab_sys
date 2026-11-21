@@ -81,12 +81,17 @@ public class AdminLogController {
             }
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             Date startDate, endDate;
             try {
                 startDate = sdf.parse(startDateStr);
                 endDate = sdf.parse(endDateStr);
             } catch (ParseException e) {
                 return Result.error("日期格式错误");
+            }
+
+            if (endDate.before(startDate)) {
+                return Result.error("开始日期不能晚于结束日期");
             }
 
             List<Log> logs = logService.findByDateRange(startDate, endDate);

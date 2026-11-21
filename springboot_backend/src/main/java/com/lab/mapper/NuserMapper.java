@@ -26,6 +26,13 @@ public interface NuserMapper {
     Nuser findById(@Param("id") String id);
 
     /**
+     * 根据邮箱查询用户
+     * @param email 邮箱
+     * @return 用户信息
+     */
+    Nuser findByEmail(@Param("email") String email);
+
+    /**
      * 根据用户名、邮箱或生日查询用户（用于登录）
      * @param username 用户名
      * @param email 邮箱

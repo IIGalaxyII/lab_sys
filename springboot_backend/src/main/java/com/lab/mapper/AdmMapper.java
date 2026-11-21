@@ -18,6 +18,13 @@ public interface AdmMapper {
     Adm findById(@Param("id") String id);
 
     /**
+     * 根据邮箱查询管理员
+     * @param email 邮箱
+     * @return 管理员信息
+     */
+    Adm findByEmail(@Param("email") String email);
+
+    /**
      * 根据用户名、邮箱或生日查询管理员（用于登录）
      * @param username 用户名
      * @param email 邮箱

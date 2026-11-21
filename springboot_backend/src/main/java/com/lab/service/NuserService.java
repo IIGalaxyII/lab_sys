@@ -60,6 +60,10 @@ public class NuserService {
             throw new RuntimeException("该学号已存在");
         }
 
+        if (nuserMapper.findByEmail(nuser.getEmail()) != null) {
+            throw new RuntimeException("该邮箱已被注册");
+        }
+
         // 加密密码
         String passwordHash = encryptPassword("123456"); // 默认密码
         nuser.setPasswordHash(passwordHash);
@@ -90,6 +94,11 @@ public class NuserService {
         Nuser existUser = nuserMapper.findById(nuser.getId());
         if (existUser == null) {
             throw new RuntimeException("用户不存在");
+        }
+
+        Nuser sameEmail = nuserMapper.findByEmail(nuser.getEmail());
+        if (sameEmail != null && !sameEmail.getId().trim().equals(nuser.getId().trim())) {
+            throw new RuntimeException("该邮箱已被其他账号使用");
         }
 
         nuserMapper.update(nuser);
@@ -153,6 +162,10 @@ public class NuserService {
             throw new RuntimeException("该ID已注册");
         }
 
+        if (nuserMapper.findByEmail(email) != null) {
+            throw new RuntimeException("该邮箱已被注册");
+        }
+
         // 加密密码
         String passwordHash = encryptPassword(password);
 
@@ -179,6 +192,11 @@ public class NuserService {
         Nuser nuser = nuserMapper.findById(id);
         if (nuser == null) {
             throw new RuntimeException("用户不存在");
+        }
+
+        Nuser sameEmail = nuserMapper.findByEmail(email);
+        if (sameEmail != null && !sameEmail.getId().trim().equals(id.trim())) {
+            throw new RuntimeException("该邮箱已被其他账号使用");
         }
 
         nuser.setUsername(username);
@@ -213,6 +231,32 @@ public class NuserService {
     }
 
     /**
+     * 通过身份信息（用户名/邮箱/生日）校验后重置密码（登录页使用）
+     */
+    @Transactional
+    public void resetPasswordByIdentity(String username, String email, String birthday,
+                                        String oldPassword, String newPassword) {
+        if ((username == null || username.isEmpty()) &&
+            (email == null || email.isEmpty()) &&
+            (birthday == null || birthday.isEmpty())) {
+            throw new RuntimeException("请至少提供用户名、邮箱或生日中的一项");
+        }
+        if (oldPassword == null || oldPassword.isEmpty() || newPassword == null || newPassword.isEmpty()) {
+            throw new RuntimeException("密码不能为空");
+        }
+
+        Nuser nuser = nuserMapper.findByLoginInfo(username, email, parseDate(birthday));
+        if (nuser == null) {
+            throw new RuntimeException("用户不存在");
+        }
+        if (!encryptPassword(oldPassword).equals(nuser.getPasswordHash())) {
+            throw new RuntimeException("旧密码错误");
+        }
+
+        nuserMapper.updatePassword(nuser.getId(), encryptPassword(newPassword));
+    }
+
+    /**
      * 密码加密（SHA-256）
      * @param password 明文密码
      * @return 加密后的密码哈希值
@@ -220,7 +264,7 @@ public class NuserService {
     private String encryptPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
+            byte[] hash = digest.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
             return Base64.getEncoder().encodeToString(hash);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("密码加密失败");

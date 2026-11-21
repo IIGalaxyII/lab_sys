@@ -95,6 +95,7 @@ public class AdminReservationController {
 
             // 解析日期
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             Date rdate;
             try {
                 rdate = sdf.parse(rdateStr);

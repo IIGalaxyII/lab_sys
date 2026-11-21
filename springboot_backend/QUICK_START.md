@@ -4,20 +4,24 @@
 
 ### 步骤1: 准备数据库（2分钟）
 
-1. **确保MySQL 8.0正在运行**
+1. **确保PostgreSQL 12+正在运行，并已创建 labsys 数据库**
+```bash
+psql -U postgres -c "CREATE DATABASE labsys;"
+```
 
-2. **执行建表脚本**
+2. **执行建表脚本（必须指定 labsys 库）**
 ```bash
 # 方法1: 命令行执行
-mysql -u root -p < querytable.sql
+psql -U postgres -d labsys -f querytable.sql
 
-# 方法2: MySQL客户端中执行
-source C:/Users/60325/mywork/Java/lab_admin_sys/springboot_backend/querytable.sql
+# 方法2: 在连接 labsys 数据库的 psql 会话中执行
+\c labsys
+\i querytable.sql
 ```
 
 3. **执行测试数据脚本（可选）**
 ```bash
-mysql -u root -p < test_data.sql
+psql -U postgres -d labsys -f test_data.sql
 ```
 
 ### 步骤2: 配置项目（1分钟）
@@ -26,8 +30,8 @@ mysql -u root -p < test_data.sql
 ```yaml
 spring:
   datasource:
-    username: root
-    password: 你的MySQL密码  # 修改这里
+    username: postgres
+    password: 你的PostgreSQL密码  # 修改这里
 ```
 
 ### 步骤3: 编译运行（2分钟）

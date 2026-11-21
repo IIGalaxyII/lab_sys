@@ -10,10 +10,12 @@
         <result property="equipmentName" column="ename"/>
     </resultMap>
 
-    <!-- 插入日志 -->
+    <!-- 插入日志（同一设备同一天重复变更状态时更新当天记录，避免主键冲突） -->
     <insert id="insert" parameterType="com.lab.entity.Log">
         INSERT INTO Log(equipment_id, log_date, state)
         VALUES(#{equipmentId}, #{logDate}, #{state})
+        ON CONFLICT (equipment_id, log_date)
+        DO UPDATE SET state = EXCLUDED.state
     </insert>
 
     <!-- 查询所有日志 -->

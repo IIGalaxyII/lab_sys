@@ -2,28 +2,28 @@
 
 ## 前置条件
 
-1. **Java JDK** - JDK 8 或 JDK 17（注意：JDK 24 与 Spring Boot 2.7.x 不兼容，请使用低版本）
-2. **MySQL 8.0+** - 已安装并运行
+1. **Java JDK** - JDK 17 及以上（当前使用 JDK 21）
+2. **PostgreSQL 12+** - 已安装并运行
 3. **Node.js** - 已安装（建议 v16+）
 4. **Maven** - 已安装并配置环境变量
 
 ## 第一步：初始化数据库
 
-启动 MySQL 后，依次执行 SQL 脚本：
+启动 PostgreSQL 后，使用 psql 依次执行 SQL 脚本：
 
 ```bash
-# 1. 建库建表
-mysql -u root -p < springboot_backend/querytable.sql
+# 1. 建库建表（必须显式指定 -d labsys，避免建到 postgres 库）
+psql -U postgres -d labsys -f springboot_backend/querytable.sql
 
 # 2. 插入测试数据
-mysql -u root -p < springboot_backend/test_data.sql
+psql -U postgres -d labsys -f springboot_backend/test_data.sql
 ```
 
 数据库配置（在 `application.yml` 中）：
 - 数据库名：`labsys`
-- 用户名：`root`
+- 用户名：`postgres`
 - 密码：`Ykt@17720516407`
-- 端口：`3306`（默认）
+- 端口：`5432`（默认）
 
 如需修改数据库连接信息，编辑 `springboot_backend/src/main/resources/application.yml`。
 
@@ -45,7 +45,7 @@ cd springboot_backend
 ```bash
 cd vue_front/vue_front
 npm install    # 首次运行需要安装依赖
-npm run serve
+npm run dev
 ```
 
 **验证**: 访问 http://localhost:8083，应该能看到登录页面。

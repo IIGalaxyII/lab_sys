@@ -158,11 +158,11 @@ public class RestoreTableService {
             deleteExpiredReservations();
         } catch (Exception e) {
             System.err.println("清理过时预约失败: " + e.getMessage());
-        }
-        try {
-            updateEquipmentFrequency();
-        } catch (Exception e) {
-            System.err.println("设备使用频率更新失败: " + e.getMessage());
+            try {
+                updateEquipmentFrequency();
+            } catch (Exception ex) {
+                System.err.println("设备使用频率更新失败: " + ex.getMessage());
+            }
         }
     }
 
@@ -203,6 +203,10 @@ public class RestoreTableService {
 
         int deletedCount = restoreTableMapper.deleteExpired(currentDate, expiredTime);
         System.out.println("已删除 " + deletedCount + " 条过时预约记录");
+
+        // 预约删除后联动：释放不再被占用的设备，并刷新设备使用频率
+        equipmentMapper.resetOccupiedEquipment();
+        updateEquipmentFrequency();
     }
     
     /**

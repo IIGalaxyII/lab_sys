@@ -39,7 +39,7 @@ public class PasswordHashGenerator {
      */
     public static String generateHash(String password) throws Exception {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(password.getBytes());
+        byte[] hash = digest.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
         return Base64.getEncoder().encodeToString(hash);
     }
 }

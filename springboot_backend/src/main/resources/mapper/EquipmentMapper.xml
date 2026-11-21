@@ -53,4 +53,16 @@
         WHERE permit = '2'
     </select>
 
+    <!-- 将不再有已批准预约的占用设备恢复为可用 -->
+    <update id="resetOccupiedEquipment">
+        UPDATE equipment
+        SET state = '0'
+        WHERE state = '1'
+          AND id NOT IN (
+              SELECT DISTINCT equipment_id
+              FROM Restore_table
+              WHERE permit = '2'
+          )
+    </update>
+
 </mapper>

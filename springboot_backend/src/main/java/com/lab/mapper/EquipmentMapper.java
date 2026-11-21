@@ -53,4 +53,10 @@ public interface EquipmentMapper {
      * @return 总批准预约数
      */
     int countTotalApprovedReservations();
+
+    /**
+     * 将不再有已批准预约的占用设备恢复为可用状态
+     * @return 影响行数
+     */
+    int resetOccupiedEquipment();
 }
